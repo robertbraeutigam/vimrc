@@ -65,5 +65,5 @@ let g:airline_section_y=''
 let g:airline#extensions#whitespace#enabled = 0
 
 " Color schema
-"color darkterm
+color darkterm
 
