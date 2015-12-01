@@ -48,7 +48,7 @@ set complete-=i
 execute pathogen#infect()
 
 " Statusline
-"set statusline=%<%f\ %{fugitive#statusline()}\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f\ %{fugitive#statusline()}\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 " Template settings
 let g:templates_no_builtin_templates = 1
