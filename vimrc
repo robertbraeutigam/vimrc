@@ -50,10 +50,6 @@ let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'breakpoints']
 " Pathogen on
 execute pathogen#infect()
 
-" Template settings
-let g:templates_no_builtin_templates = 1
-let g:templates_directory = '~/.vim/templates'
-
 " Airline customizing
 "if $COLORTERM == 'gnome-terminal'
 set t_Co=256
@@ -63,6 +59,22 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_x=''
 let g:airline_section_y=''
 let g:airline#extensions#whitespace#enabled = 0
+
+" Airline customizing: If there are quickfixes, display the count in the
+" warning section
+function! GetQuickfixMessage()
+   return ''.len(getqflist()).' Problems'
+endfunction
+function! AirlineInit()
+   call airline#parts#define_function('quickfixes', 'GetQuickfixMessage')
+   call airline#parts#define_condition('quickfixes', '!empty(getqflist())')
+   let g:airline_section_warning = airline#section#create(['quickfixes'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
+
+" Template settings
+let g:templates_no_builtin_templates = 1
+let g:templates_directory = '~/.vim/templates'
 
 " Color schema
 color darkterm
