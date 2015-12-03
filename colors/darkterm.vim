@@ -1,5 +1,4 @@
 set background=dark
-hi clear
 if exists("syntax_on")
   syntax reset
 endif
@@ -12,4 +11,5 @@ hi javaCommentTitle ctermfg=lightgray
 hi javaDocTags ctermfg=white
 hi javaDocParam ctermfg=white
 hi clear SignColumn
+hi WarningMsg ctermbg=red ctermfg=white
 
