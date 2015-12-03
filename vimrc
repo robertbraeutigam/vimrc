@@ -50,9 +50,6 @@ let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'breakpoints']
 " Pathogen on
 execute pathogen#infect()
 
-" Statusline
-set statusline=%<%f\ %{fugitive#statusline()}\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
 " Template settings
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = '~/.vim/templates'
