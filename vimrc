@@ -45,7 +45,7 @@ inoremap <S-TAB> 
 set complete-=i
 
 " Setup quickfixsigns
-let g:quickfixsigns_classes = ['qfl', 'loc', 'marks', 'breakpoints']
+let g:quickfixsigns_classes = ['loc', 'marks', 'breakpoints', 'qfl']
 
 " Pathogen on
 execute pathogen#infect()
