@@ -79,3 +79,8 @@ let g:templates_directory = '~/.vim/templates'
 " Color schema
 color darkterm
 
+" Missing filetypes
+au BufRead,BufNewFile *.scala set filetype=scala
+au BufRead,BufNewFile *.scala set ai
+au BufWritePost *.java UnusedImports
+
