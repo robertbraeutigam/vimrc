@@ -10,13 +10,15 @@ set sw=3               " Indent is 3 spaces
 set expandtab          " Tabs shall be spaces
 set nobk               " No backup files 
 set showcmd            " Show current command
-set visualbell         " no beep
+set novb               " No visual bell
 set bg=dark            " Dark background
 set fdm=manual         " Manual folding (automatic too slow)
 set number             " Number lines
 set cmdheight=2        " Be able to display errors properly
 set laststatus=2       " Always display statusline
 set tabstop=3          " If there are tabs, make them 3 spaces long
+set nocompatible
+set modeline
 
 " Syntax highlight
 syntax on
@@ -72,6 +74,15 @@ function! AirlineInit()
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 
+" Append modeline after last line in buffer.
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ts=%d sw=%d tw=%d %set :",
+        \ &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
+endfunction
+nnoremap <silent> <Leader>ml :call AppendModeline()<CR>
+
 " Template settings
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = '~/.vim/templates'
@@ -79,8 +90,17 @@ let g:templates_directory = '~/.vim/templates'
 " Color schema
 color darkterm
 
+" Disable syntastic on Java files, because it is slower
+function! SyntasticDisableBuffer()
+    let b:syntastic_skip_checks = 1
+    SyntasticReset
+endfunction
+
 " Missing filetypes
 au BufRead,BufNewFile *.scala set filetype=scala
 au BufRead,BufNewFile *.scala set ai
 au BufWritePost *.java UnusedImports
+au BufRead *.java call SyntasticDisableBuffer()
 
+" Haskell
+au BufRead *.hs set foldmethod=marker
