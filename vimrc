@@ -56,7 +56,7 @@ execute pathogen#infect()
 "if $COLORTERM == 'gnome-terminal'
 set t_Co=256
 "endif
-let g:airline_theme='bubblegum'
+"let g:airline_theme='bubblegum'
 let g:airline_powerline_fonts = 1
 let g:airline_section_x=''
 let g:airline_section_y=''
@@ -90,17 +90,10 @@ let g:templates_directory = '~/.vim/templates'
 " Color schema
 color darkterm
 
-" Disable syntastic on Java files, because it is slower
-function! SyntasticDisableBuffer()
-    let b:syntastic_skip_checks = 1
-    SyntasticReset
-endfunction
-
 " Missing filetypes
 au BufRead,BufNewFile *.scala set filetype=scala
 au BufRead,BufNewFile *.scala set ai
 au BufWritePost *.java UnusedImports
-au BufRead *.java call SyntasticDisableBuffer()
 
 " Haskell
 au BufRead *.hs set foldmethod=marker
