@@ -93,7 +93,6 @@ color darkterm
 " Missing filetypes
 au BufRead,BufNewFile *.scala set filetype=scala
 au BufRead,BufNewFile *.scala set ai
-au BufWritePost *.java UnusedImports
 
 " Haskell
 au BufRead *.hs set foldmethod=marker
