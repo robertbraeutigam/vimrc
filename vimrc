@@ -71,7 +71,7 @@ endfunction
 function! AirlineInit()
    call airline#parts#define_function('quickfixes', 'GetQuickfixMessage')
    call airline#parts#define_condition('quickfixes', '!empty(getqflist())')
-   let g:airline_section_warning = airline#section#create(['quickfixes'])
+   let g:airline_section_error = airline#section#create(['quickfixes'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 
