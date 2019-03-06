@@ -62,6 +62,7 @@ let g:airline_section_x=''
 let g:airline_section_y=''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " Airline customizing: If there are quickfixes, display the count in the
 " warning section
