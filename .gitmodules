@@ -4,3 +4,6 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = ssh://git@github.com/tpope/vim-fugitive
+[submodule "pack/vim-java-ide"]
+	path = pack/vim-java-ide
+	url = git@github.com:robertbraeutigam/vim-java-ide.git
