@@ -7,3 +7,6 @@
 [submodule "pack/vim-java-ide"]
 	path = pack/vim-java-ide
 	url = git@github.com:robertbraeutigam/vim-java-ide.git
+[submodule "bundle/quickmenu.vim"]
+	path = bundle/quickmenu.vim
+	url = https://github.com/skywind3000/quickmenu.vim

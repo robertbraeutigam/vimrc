@@ -98,3 +98,7 @@ au BufRead,BufNewFile *.scala set ai
 
 " Haskell
 au BufRead *.hs set foldmethod=marker
+
+" Java quickfix
+map <silent> <F4> :call QuickfixSuggestImport()<CR>
+imap <silent> <F4> :call QuickfixSuggestImport<CR>li
