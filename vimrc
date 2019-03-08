@@ -37,9 +37,9 @@ imap <F3> :e
 imap <F12> :bdelete<CR>li
 
 " Quickfix issues
+map <F8> :cp
 map <F9> :cc
-map <F10> :cp
-map <F11> :cn
+map <F10> :cn
 
 " Completion
 inoremap <TAB> 
